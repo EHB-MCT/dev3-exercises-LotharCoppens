@@ -6,8 +6,22 @@ fun main() {
 }
 
 fun challengeOne(){
+    println("Want to know more about what happend?")
+    println("answer my question: The one who made it doesn't need it, the one who buys it doesn't buy it for himself, and the one who needs it doesn't know he needs it.")
 
-    println("Want to know more about what happen? answer my question: The one who made it doesn't need it, the one who buys it doesn't buy it for himself, and the one who needs it doesn't know he needs it.")
+    val answers = setOf<String>("Coffin", "Doodskist")
+    val userAnswer = readLine()
 
+    if (answers.contains(userAnswer)){
+        winOne()
+    } else {
+        gameOverOne()
+    }
 }
 
+fun winOne() {
+    println("Good Answer you may proceed")
+}
+fun gameOverOne(){
+    println("Wrong")
+}
