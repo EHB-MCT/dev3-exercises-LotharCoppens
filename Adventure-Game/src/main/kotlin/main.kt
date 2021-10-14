@@ -44,7 +44,7 @@ fun challengeTwo(){
 }
 
 fun winTwo(){
-    println("Correct")
+    println("High King: Correct")
 
     challengeThree()
 }
@@ -77,13 +77,13 @@ fun gameOverThree(){
 
 
 fun winThree(){
-    print("You guessed correctly ")
+    print("High King: You guessed correctly ")
     challengeFour()
 
 }
 
 fun challengeFour(){
-    print("Lets pick a weapon you can wield to cross the border but be carfull if you pick the wrong one you could face some other options")
+    print("High King: Lets pick a weapon you can wield to cross the border but be carfull if you pick the wrong one you could face some other options")
     print("1. Sword 2. Bow 3. Axe")
     val userAnswer = readLine()
 
@@ -100,7 +100,7 @@ fun challengeFour(){
 }
 
 fun winFour(){
-    print("Great job! you will need that sharp bow to defeat the elder dragon you will have to defeat but to go into battle you have to guess the age of the dragon")
+    print("High King: Great job! you will need that sharp bow to defeat the elder dragon you will have to defeat but to go into battle you have to guess the age of the dragon")
 
     val secretAge = (Math.random() * 100 + 1).toInt()
 
@@ -108,13 +108,13 @@ fun winFour(){
     var attempts=0
 
     while (true) {
-        print("Enter your guess (1-100): ")
+        print("High King: Tell your guess (1-100): ")
         guess = readLine()!!.toInt()
 
         when (guess.compareTo(secretAge)) {
-            -1 -> { println("Too Young!"); attempts++ }
-            0 -> { attempts++; println("Thats correct! He is $secretAge years old. You took $attempts guesses!"); return }
-            1 -> { println("Too Old!"); attempts++ }
+            -1 -> { println("High King: Too Young!"); attempts++ }
+            0 -> { attempts++; println("High King: Thats correct! He is $secretAge years old. You took $attempts guesses!"); return }
+            1 -> { println("High King: Too Old!"); attempts++ }
         }
     }
 
