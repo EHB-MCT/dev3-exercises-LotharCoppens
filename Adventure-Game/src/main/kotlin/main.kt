@@ -50,24 +50,94 @@ fun winTwo(){
 }
 
 fun challengeThree(){
-    print("guess the correct dice roll to proceed")
+    print("guess the correct dice roll to proceed ")
 
-    val dice1 = (Math.random() * 6 + 1).toInt()
-    System.out.println("Roll: total = " +dice1)
+    val diceResult = (1..6).random()
+    val userAnswer = readLine()
+    var acceptedAnswers = setOf<Int>()
 
-    val low: IntArray = intArrayOf(1, 2, 3)
-    val high: IntArray = intArrayOf(4, 5, 6)
+    if (userAnswer == "low") {
+        acceptedAnswers = setOf(1,2,3)
+    } else {
+        acceptedAnswers = setOf(4,5,6)
+    }
 
-    if (dice1 == low){
+    if (acceptedAnswers.contains(diceResult)){
         winThree()
-    } else{
-        gameOverOne()
+    } else {
+        gameOverThree()
     }
 
 }
 
+fun gameOverThree(){
+    println("Eron: Wrong, retry")
+    challengeThree()
+}
+
+/*
+fun NumberGuessC4() {
+    val secretNumber = (Math.random() * 6 + 1).toInt()
+
+    println("Welcome to the Guessing Game!\n")
+
+    var guess: Int
+    var attempts=0
+
+    while (true) {
+        print("Enter your guess (1-6): ")
+        guess = readLine()!!.toInt()
+
+        when (guess.compareTo(secretNumber)) {
+            -1 -> { println("Too small!"); attempts++ }
+            0 -> { attempts++; println("You win! You took $attempts guesses!"); return }
+            1 -> { println("Too big!"); attempts++ }
+        }
+    }
+}
+*/
+
 fun winThree(){
-    print("You guessed correctly")
+    print("You guessed correctly ")
+    challengeFour()
+
+}
+
+fun challengeFour(){
+    print("Lets pick a weapon you can wield to cross the border but be carfull if you pick the wrong one you could face some other options")
+    print("1. Sword 2. Bow 3. Axe")
+    val userAnswer = readLine()
+
+    if (userAnswer == "Sword") {
+        winFour()
+    } else if (userAnswer == "Bow"){
+        println("Too Bad, pick again")
+        challengeFour()
+    }else if (userAnswer == "Axe") {
+        gameOverOne()
+    }
+
+
+}
+
+fun winFour(){
+    print("Great job! you will need that sharp bow to defeat the elder dragon you will have to defeat but to go into battle you have to guess the age of the dragon")
+
+    val secretAge = (Math.random() * 100 + 1).toInt()
+
+    var guess: Int
+    var attempts=0
+
+    while (true) {
+        print("Enter your guess (1-100): ")
+        guess = readLine()!!.toInt()
+
+        when (guess.compareTo(secretAge)) {
+            -1 -> { println("Too Young!"); attempts++ }
+            0 -> { attempts++; println("Thats correct! He is $secretAge years old. You took $attempts guesses!"); return }
+            1 -> { println("Too Old!"); attempts++ }
+        }
+    }
 
 }
 
