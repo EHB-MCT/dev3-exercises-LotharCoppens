@@ -24,7 +24,7 @@ fun winOne() {
     challengeTwo()
 }
 fun gameOverOne(){
-    println("Eron: Wrong")
+    println("Eron: Wrong!")
 }
 fun challengeTwo(){
     println("Eron: Lets go talk to the High King and prove your worth")
