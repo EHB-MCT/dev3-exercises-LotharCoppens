@@ -87,8 +87,9 @@ WHERE contactFirstName LIKE '%William%'\
 \
 
 \fs48 2 
-\fs24 SELECT customers.contactFirstName, employees.firstName FROM customers\
+\fs24 SELECT customers.customerName, CONCAT (employees.firstName,' ', employees.lastName) FROM customers\
 LEFT JOIN employees ON employees.employeeNumber = customers.salesRepEmployeeNumber\
 WHERE firstName IS NOT NULL\
+\
 \
 }
