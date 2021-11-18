@@ -5,7 +5,8 @@
 \paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 Batch 1:\
+\f0\fs48 \cf0 Batch 1:
+\fs24 \
 \
 1 SELECT * FROM products\
 WHERE productCode='S24_3856';\
@@ -34,18 +35,60 @@ WHERE productLine LIKE '%Ships%'\
 \
 9\
 \
-Batch 2:\
+
+\fs48 Batch 2:
+\fs24 \
 \
-1 SELECT COUNT(customerNumber)\
+
+\fs36 1
+\fs28  
+\fs24 SELECT COUNT(customerNumber)\
 FROM orders\
 WHERE customerNumber LIKE '%328%'\
 \
 3\
 \
-2 SELECT customers.customerNumber, COUNT(orders.customerNumber) AS orderAmount FROM customers\
+
+\fs36 2
+\fs26  
+\fs24 SELECT customers.customerNumber, COUNT(orders.customerNumber) AS orderAmount FROM customers\
 LEFT JOIN orders ON orders.customerNumber = customers.customerNumber\
 WHERE contactLastName LIKE '%Young%' AND contactFirstName LIKE '%Julie%'\
 \
 205	3\
 \
-3 }
+
+\fs36 3 
+\fs24 SELECT count(creditLimit)\
+FROM customers\
+WHERE creditLimit=0 AND country LIKE '%USA%'\
+\
+1\
+\
+
+\fs36 4 
+\fs24 SELECT AVG(amount) AS average, customers.customerName FROM payments\
+INNER JOIN customers ON customers.customerNumber = payments.customerNumber\
+GROUP BY customers.customerNumber\
+ORDER BY average DESC\
+LIMIT 1\
+\
+80375.240000	Collectable Mini Designs Co.\
+\
+
+\fs48 Batch 3:\
+\
+1 
+\fs24 SELECT SUM(amount) AS William FROM customers\
+LEFT JOIN payments ON payments.customerNumber = customers.customerNumber\
+WHERE contactFirstName LIKE '%William%'\
+\
+38281.51\
+\
+
+\fs48 2 
+\fs24 SELECT customers.contactFirstName, employees.firstName FROM customers\
+LEFT JOIN employees ON employees.employeeNumber = customers.salesRepEmployeeNumber\
+WHERE firstName IS NOT NULL\
+\
+}
