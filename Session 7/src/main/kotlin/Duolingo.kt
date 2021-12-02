@@ -1,22 +1,41 @@
-class Duolingo {
+class Duolingo (){
+    val words = setOf<Word>(
+        Word("boat", "boot", "Engels"),
+    Word("shovel", "schup", "Engels"),
+    Word("sword", "zwaard", "Engels"),
+    Word("bucket", "emmer", "Engels"),
+    Word("pain", "brood", "Frans"),
+    Word("oreille", "oor", "Frans"),
+    Word("table", "tafel", "Frans"),
+    Word("lapin", "konijn", "Frans"),
+    Word("floor", "vloer", "Engels"),
+    Word("feu", "vuur", "Frans")
+
+    )
     fun play(){
-        val boat = Word("boat", "boot", "Engels")
-        val shovel = Word("shovel", "schup", "Engels")
-        val sword = Word("sword", "zwaard", "Engels")
-        val bucket = Word("bucket", "emmer", "Engels")
-        val pain = Word("pain", "brood", "Frans")
-        val oreille = Word("oreille", "oor", "Frans")
-        val table = Word("table", "tafel", "Engels")
-        val lapin = Word("lapin", "konijn", "Frans")
-        val floor = Word("floor", "vloer", "Engels")
-        val fire = Word("fire", "vuur", "Engels")
-        println(fire.original)
+        println("how many words would you like per round?")
+        val roundsize = readLine()
+        println("What language do you want?")
+        val filter = readLine()
+        val randomWords = words.shuffled().take(roundsize!!.toInt()).filter { it.language == filter}.toMutableSet()
 
-        val list = listOf(fire.original,floor.original,lapin.original,table.original,oreille.original,pain.original,boat.original,bucket.original,shovel.original,sword.original)
-        val numberOfElements = 5
 
-        val randomElements = list.asSequence().shuffled().take(numberOfElements).toList()
-        println(randomElements)
+        while (randomWords.isNotEmpty()){
 
+        val randomWord = randomWords.random()
+        println("What is the translation for " + randomWord.original)
+        val userAnswer = readLine()
+
+        if(randomWord.translated == userAnswer){
+            println("Correct")
+            randomWords.remove(randomWord)
+
+        }else{
+            println("Wrong it was " +randomWord.translated)
+        }
+        println("you have " + randomWords.count() + " Left")
+
+    }
+        println("You made it!")
     }
 }
