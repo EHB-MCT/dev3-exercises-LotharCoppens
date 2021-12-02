@@ -12,6 +12,24 @@ class Duolingo (){
     Word("feu", "vuur", "Frans")
 
     )
+
+    val frenchWords = setOf<FrenchWord>(
+        FrenchWord("pain", "brood"),
+        FrenchWord("oreille", "oor"),
+        FrenchWord("table", "tafel"),
+        FrenchWord("lapin", "konijn"),
+        FrenchWord("feu", "vuur")
+    )
+
+    val englishWords = setOf<EnglishWord>(
+        EnglishWord("pain", "pijn"),
+        EnglishWord("paint", "verf"),
+        EnglishWord("waffle", "waffel"),
+        EnglishWord("bank", "bank"),
+
+    )
+
+
     fun play(){
         println("how many words would you like per round?")
         val roundsize = readLine()
