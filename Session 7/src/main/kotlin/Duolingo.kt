@@ -17,7 +17,7 @@ class Duolingo (){
         val roundsize = readLine()
         println("What language do you want?")
         val filter = readLine()
-        val randomWords = words.shuffled().take(roundsize!!.toInt()).filter { it.language == filter}.toMutableSet()
+        val randomWords = words.filter { it.language == filter}.shuffled().take(roundsize!!.toInt()).toMutableSet()
 
 
         while (randomWords.isNotEmpty()){
