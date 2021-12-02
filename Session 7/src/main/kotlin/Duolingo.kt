@@ -1,32 +1,19 @@
 class Duolingo (){
+    var rounds:Int = 5
+    var difficutly:String = "easy"
+    var language:String = "English"
+
     val words = setOf<Word>(
-        Word("boat", "boot", "Engels"),
-    Word("shovel", "schup", "Engels"),
-    Word("sword", "zwaard", "Engels"),
-    Word("bucket", "emmer", "Engels"),
-    Word("pain", "brood", "Frans"),
-    Word("oreille", "oor", "Frans"),
-    Word("table", "tafel", "Frans"),
-    Word("lapin", "konijn", "Frans"),
-    Word("floor", "vloer", "Engels"),
-    Word("feu", "vuur", "Frans")
-
-    )
-
-    val frenchWords = setOf<FrenchWord>(
-        FrenchWord("pain", "brood"),
-        FrenchWord("oreille", "oor"),
-        FrenchWord("table", "tafel"),
-        FrenchWord("lapin", "konijn"),
-        FrenchWord("feu", "vuur")
-    )
-
-    val englishWords = setOf<EnglishWord>(
-        EnglishWord("pain", "pijn"),
-        EnglishWord("paint", "verf"),
-        EnglishWord("waffle", "waffel"),
-        EnglishWord("bank", "bank"),
-
+        EnglishWord("boat", "boot"),
+    EnglishWord("shovel", "schup"),
+    EnglishWord("sword", "zwaard"),
+    EnglishWord("bucket", "emmer"),
+    FrenchWord("pain", "brood"),
+    FrenchWord("oreille", "oor"),
+    FrenchWord("table", "tafel"),
+    FrenchWord("lapin", "konijn"),
+    EnglishWord("floor", "vloer"),
+    FrenchWord("feu", "vuur")
     )
 
 
