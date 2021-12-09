@@ -1,5 +1,7 @@
 class FrenchWord (
-    val original: String ,
-    val translated: String ,
-    override val language: String = "Frans"
-)
+    override val original: String ,
+    override val translated: String,
+    override var difficulty: Int,
+):Word(original,translated,difficulty, "French"){
+
+}

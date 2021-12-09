@@ -1,28 +1,34 @@
-class Duolingo (){
-    var rounds:Int = 5
-    var difficutly:String = "easy"
-    var language:String = "English"
+class Duolingo (
+    val roundsize: Int = 5,
+    var language: String = "English"
+){
 
-    val words = setOf<Word>(
-        EnglishWord("boat", "boot"),
-    EnglishWord("shovel", "schup"),
-    EnglishWord("sword", "zwaard"),
-    EnglishWord("bucket", "emmer"),
-    FrenchWord("pain", "brood"),
-    FrenchWord("oreille", "oor"),
-    FrenchWord("table", "tafel"),
-    FrenchWord("lapin", "konijn"),
-    EnglishWord("floor", "vloer"),
-    FrenchWord("feu", "vuur")
+
+    var words = setOf<Word>(
+        EnglishWord("boat", "boot", 1),
+    EnglishWord("shovel", "schup", 1),
+    EnglishWord("sword", "zwaard", 1),
+    EnglishWord("bucket", "emmer", 2),
+    FrenchWord("pain", "brood",2),
+    FrenchWord("oreille", "oor",1),
+    FrenchWord("table", "tafel",1),
+    FrenchWord("lapin", "konijn",2),
+    EnglishWord("floor", "vloer",1),
+    FrenchWord("feu", "vuur",2)
     )
 
+    init{
+        println("What language?")
+        language = readLine().toString()
+        if (language == "French" ||  language == "English" ) {
+            words = words.filter { it.language == language }.toMutableSet()
+        }else{
+            throw Exception("No valid language")
+        }
+    }
 
     fun play(){
-        println("how many words would you like per round?")
-        val roundsize = readLine()
-        println("What language do you want?")
-        val filter = readLine()
-        val randomWords = words.filter { it.language == filter}.shuffled().take(roundsize!!.toInt()).toMutableSet()
+        val randomWords = words.shuffled().take(roundsize).toMutableSet()
 
 
         while (randomWords.isNotEmpty()){

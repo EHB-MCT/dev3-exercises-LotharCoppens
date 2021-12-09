@@ -1,6 +1,7 @@
 open class Word (
-val original: String ,
-val translated: String ,
-open val language: String
+open val original: String ,
+open val translated: String ,
+open var difficulty: Int,
+val language: String
 ){
 }
