@@ -1,21 +1,10 @@
 class Duolingo (
-    val roundsize: Int = 5,
+    var roundsize: Int = 5,
     var language: String = "English"
 ){
 
+    var words = WordDeck().wordDeck
 
-    var words = setOf<Word>(
-        EnglishWord("boat", "boot", 1),
-    EnglishWord("shovel", "schup", 1),
-    EnglishWord("sword", "zwaard", 1),
-    EnglishWord("bucket", "emmer", 2),
-    FrenchWord("pain", "brood",2),
-    FrenchWord("oreille", "oor",1),
-    FrenchWord("table", "tafel",1),
-    FrenchWord("lapin", "konijn",2),
-    EnglishWord("floor", "vloer",1),
-    FrenchWord("feu", "vuur",2)
-    )
 
     init{
         println("What language?")
@@ -38,8 +27,14 @@ class Duolingo (
         val userAnswer = readLine()
 
         if(randomWord.translated == userAnswer){
-            println("Correct")
+            println("Correct it was " +randomWord.translated)
             randomWords.remove(randomWord)
+            if (randomWord.difficulty > 1){
+                randomWord.difficulty--
+            }else{
+                randomWord.difficulty++
+
+            }
 
         }else{
             println("Wrong it was " +randomWord.translated)
